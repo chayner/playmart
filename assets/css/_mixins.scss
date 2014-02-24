@@ -1,0 +1,82 @@
+/*-------------------------------------- Mixins ---------------------------------------*/
+
+@mixin enriqueta {
+	font-family: "Enriqueta", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin enriqueta_bold {
+	font-family: "Enriqueta", sans-serif;
+	font-weight: 700;
+	font-style: normal;
+}
+
+@mixin source_sans {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
+@mixin source_sans_bold {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 700;
+}
+
+@mixin slider_text {
+	@extend source_sans;
+	font-size: 1.125em;
+	color: $body_color;
+}
+
+@mixin box-sizing {
+	-webkit-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@mixin clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020"; 
+        display: block; 
+        height: 0; 
+        overflow: hidden; 
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin icon($src) {
+	background: url(../images/#{$src}) 0 0 no-repeat;
+	&:hover {
+		background-position: 0 -30px;
+	}
+}
+
+@mixin rounded($radius: 5px) {
+     -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+     border-radius: $radius;
+}
+
+@mixin color-transition {
+	-webkit-transition: color 0.2s ease;
+	-moz-transition: color 0.2s ease;
+	-o-transition: color 0.2s ease;
+	transition: color 0.2s ease;
+}
+
+@mixin all-transition {
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	-o-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}

@@ -1,0 +1,54 @@
+/***********************************************************************************/
+/* Variables */
+/***********************************************************************************/
+
+// Colors
+
+$blue: #0067B3;
+$med_blue: #73CBE5;
+$light_blue: #E4F5FA;
+$red: #D6172D;
+$dark_green: #245525;
+$green: #239600;
+$light_green: #78DC00;
+
+// Body Elements
+$body_color: #000;
+$link_color: $blue;
+
+// Headers
+$accent: $red;
+$accent2: $blue;
+$accent3: $med_blue;
+$green_zone: $green;
+$h1_color: $red;
+$h2_color: $blue;
+$h2_footer: $green;
+$h3_color: $blue;
+$copyright: $green;
+$button_color: #FFF;
+
+// Navigation
+$nav_color: $blue;
+$nav_hover: $red;
+$subnav_hover: $med_blue;
+$subnav_accent: darken($light_blue, 15%);
+
+
+// Footer 
+
+$foot_background: $dark_green;
+$foot_h2: $light_green;
+$foot_cat_background: $green;
+$footer_anchor: $green;
+$footer_anchor_hover: $dark_green;
+
+$foot_bottom_a: $green;
+$foot_bottom_a_hover: $light_green;
+
+// Media Queries
+
+$main_break: 940px;
+$ipad_portrait: 768px;
+$iphone_landscape: 640px;
+$iphone_portrait: 605px;

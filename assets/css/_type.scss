@@ -1,0 +1,84 @@
+/***********************************************************************************/
+/* Type Treatments */
+/***********************************************************************************/
+
+body {
+	@include source_sans;
+	font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6, h7, h8 {
+	line-height: 1.2;
+}
+
+h1 {
+	@include enriqueta_bold;
+	color: $h1_color;
+	font-size: 2.5em;
+	text-transform: uppercase;
+}
+
+h2 {
+	@include enriqueta_bold;
+	color: $blue;
+	font-size: 1.9em;
+	margin-bottom: .5em;
+}
+
+h3 {
+	@include enriqueta_bold;
+	font-size: 1.063em;
+	color: $blue;
+}
+
+h4 {
+	@include enriqueta_bold;
+	color: #FFF;
+	font-size: 1.25em;
+}
+
+.slider_text {
+	@include slider_text;
+}
+
+.caps {
+	text-transform: uppercase;
+}
+
+// Alternate Headers
+
+.center_blue {
+	color: #FFF;
+	text-align: center;
+	padding: .35em 0;
+	background: $accent2;
+	border: 1px solid $accent2;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-top-right-radius: 5px;
+	-moz-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.center_red {
+	text-align: center;
+	padding: .25em 0;
+}
+
+// Footer Specific
+
+.footer h2 {
+	color: $green;
+	@include source_sans;
+}
+
+.footer {
+	color: #FFF;
+}
+
+.copyright {
+	@extend source_sans;
+	color: $copyright;
+	font-size: 0.688em;
+}

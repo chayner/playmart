@@ -1,0 +1,651 @@
+/*-------------------------------------- Import Files ---------------------------------------*/
+
+@import "bourbon";
+@import "neat/neat";
+@import "grid-settings";
+@import "reset";
+@import "columns";
+@import "mixins";
+@import "variables";
+@import "type";
+
+/*-------------------------------------- Begin Stylesheet ---------------------------------------*/
+
+// Globals
+
+// Start Responsive
+
+img, object, video, embed {
+	max-width: 100% !important;
+}
+
+// Anchors
+a {
+	color: $link_color;
+	text-decoration: none;
+	
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+
+// Position Styles
+.center {
+	margin: auto;
+	text-align: center;
+}
+
+.go_right {
+	text-align: right;
+}
+
+p {
+	margin: 1em 0;
+	line-height: 1.25em;
+}
+
+li {
+	line-height: 1.25em;
+}
+
+.omega {
+	@include omega();
+}
+
+// Buttons
+.button {
+	display: inline-block;
+	padding: .5em 1.4em;
+	border: 1px solid transparent;
+	@include rounded(5px);
+	@include enriqueta_bold;
+	font-size: 1em;
+	text-decoration: none;
+	color: $button_color;
+	text-transform: uppercase;
+	
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.blue_button {
+	background: $blue;
+	@include all-transition;
+	
+	&:hover {
+		background: darken($blue, 10%);
+	}
+}
+
+.green_button {
+	background: $green;
+	@include all-transition;
+	
+	&:hover {
+		background: darken($green, 10%);
+	}
+}
+
+.social_icon {
+	display: inline-block;
+	height: 30px;
+	width: 30px;
+	margin-left: .35em;
+	text-indent: -999em;
+}
+
+// Hide iPhone Blocks
+
+.iphone_display, .iphone_show, .ipad_show {
+	display: none;
+}
+
+.lg_display {
+	display: block;
+}
+
+/*-------------------------------------- Body and Background ---------------------------------------*/
+
+body {
+	background: $light_blue url('../images/bg_clouds.jpg') center top repeat-x;
+}
+
+/*-------------------------------------- Main Container ---------------------------------------*/
+
+.container {
+	@include outer-container();
+}
+
+
+/*-------------------------------------- Begin Header ---------------------------------------*/
+
+.masthead {
+	padding-top: 1em;
+	position: relative;
+	@include clearfix;
+	margin-bottom: 1em;
+	
+	.logo {
+		@include span-columns(4);
+		
+		a {
+			@include hide-text();
+			display: block;
+			height: 125px;
+			width: 276px;
+			background: url('../images/logo_play-mart-main.png') 0 0 no-repeat;
+			&:hover {
+				background-position: 0 -125px;
+			}
+		}		
+	}
+	
+	.social {
+		position: absolute;
+		top: 10px;
+		right: 0;
+		@include clearfix;
+	}
+	
+	.login_button {
+		color: #FFF;
+		@include source_sans_bold;
+		text-transform: uppercase;
+		padding: .5em 1em;
+		margin-right: .35em;
+		border-right: 1px solid #FFF;
+		text-decoration: none;
+		display: inline-block;
+		@include color-transition;
+		position: relative;
+		top: 7px;
+		
+		&:hover {
+			color: rgba(255,255, 255,.7);
+		}
+	}
+	
+	.facebook {
+		@include icon('sm_header/sm_header_facebook.png');
+	}
+	.twitter {
+		@include icon('sm_header/sm_header_twitter.png');
+	}
+	.in {
+		@include icon('sm_header/sm_header_linkedin.png');
+	}
+	.youtube {
+		@include icon('sm_header/sm_header_youtube.png');
+	}
+	
+}
+
+.mainNav {
+
+	margin-top: 6em;
+	@include span-columns(8);
+	@include omega();
+	
+	ul {
+		margin: 0;
+	}
+	
+	li {
+		
+		float: left;
+		@include clearfix;
+		position: relative;
+		padding-bottom: 1em;
+	
+		a {
+			float: left;
+			display: block;
+			@include enriqueta_bold;
+			font-size: em(16,16);
+			text-transform: uppercase;
+			color: $nav_color;
+			text-decoration: none;
+			@include color-transition;
+			margin-left: 1em;
+			
+			&:hover {
+				color: $nav_hover;
+			}
+		}
+		
+		ul {
+			display: none;
+			position: absolute;
+			top: 30px;
+			left: 1em;
+			width: 140px;
+			background: $accent2;
+			
+			li {
+				float: none;
+				padding-bottom: 0;
+				
+				a {
+					float: none;
+					display: block;
+					margin: 0;
+					padding: .5em 1em;
+					color: #FFF;
+					@include source_sans;
+					text-transform: none;
+					@include all-transition;
+					
+					&:hover {
+						color:#FFF;
+						background: $subnav_hover;
+					}
+				}
+			}
+		}
+		
+	}
+	
+	li.nav_roll > a {
+		color: $accent;
+	}
+		
+	li.green_zone a:hover {
+		color: $green_zone;
+	}
+	
+}
+
+.mobileNav {
+	display: none;
+}
+
+/*-------------------------------------- Feature Slider ---------------------------------------*/
+
+.feature {
+	@include clearfix;	
+}
+
+.slide {
+	width: 100%;
+	height: 350px;
+	background: url('../images/slides/feature-fun.jpg') center center no-repeat;
+	@include clearfix;	
+}
+
+.r_slide {
+	@include span-columns(5);
+	@include shift(7);
+	@include omega();
+	@include box-sizing;
+	padding: 2em 1em 1em 0;
+	
+	.button {
+		margin-top: 1em;
+	}
+}
+
+/*-------------------------------------- Products Pages ---------------------------------------*/
+
+.product_feature {
+	background: url('../images/bg_gradation.png') 0 0 repeat-x;
+	
+	.pf_right {
+		padding-top: .5em;
+		
+		ul {
+			li {
+				list-style: disc;
+				margin-left: 1.25em;
+			}
+		}
+	}
+	
+	.button {
+		float: right;
+		margin-right: 1em;
+	}
+}
+
+h2 a.button {
+	font-size: .6em;
+	margin-right: .75em;
+}
+
+/*-------------------------------------- Product Single ---------------------------------------*/
+
+.feature_contain {
+	@include clearfix;
+	position: relative;
+}
+
+.arrow {
+	display: block;
+	width: 35px;
+	height: 60px;
+	position: absolute;
+	top: 50%;
+	margin-top: -30px;
+}
+
+.feature_prev {
+	background: url('../images/icon_feature-arrow-left.png') 0 0 no-repeat;
+	left: 10px;
+}
+.feature_next {
+	background: url('../images/icon_feature-arrow-right.png') 0 0 no-repeat;
+	right: 10px;
+}
+
+.arrow:hover {
+	background-position: 0 -60px;
+}
+
+.thumb_slider {
+	position: relative;
+	padding: 1em 0;
+	@include clearfix;
+	background: $accent3;
+	margin: 1em 0;
+	@include rounded(5px);
+	
+	ul {
+		
+		padding-left: 13%; // For Position ONLY!!!!!!
+		
+		li {
+			float: left;
+			margin: 0 1em;
+		}
+	}
+}
+
+.scroller {
+	display: block;
+	width: 50px;
+	height: 75px;
+	position: absolute;
+	top: 50%;
+	margin-top: -37px;
+}
+
+.scroller_prev {
+	background: url('../images/icon_scroller-left.png') 0 0 no-repeat;
+	left: 0;
+}
+.scroller_next {
+	background: url('../images/icon_scroller-right.png') 0 0 no-repeat;
+	right: 0;
+}
+
+.scroller:hover {
+	background-position: 0 -75px;
+}
+
+/*-------------------------------------- Get Started ---------------------------------------*/
+
+.step_container {
+	@include clearfix;
+	background: url('../images/bg_gradation.png') 0 0 repeat-x;
+	
+	.span_4 {
+		margin-top: 1.5em;
+	}
+	
+	img {
+		margin-bottom: 1em;
+	}
+	
+	.button {
+		display: block;
+		text-align: center;
+	}
+}
+
+.get_started {
+	.contact_form {
+		display: none;
+	}
+}
+
+/*-------------------------------------- Get STarted Form ---------------------------------------*/
+
+
+
+/*-------------------------------------- Secondary Feature ---------------------------------------*/
+
+.sub_feature {
+	margin-top: 1em;
+	
+	.button {
+		margin-right: 1em;
+	}
+}
+
+/*-------------------------------------- Homepage Grid ---------------------------------------*/
+
+.product_grid {
+	@include clearfix;
+	margin-top: 1em;
+	
+	ul {
+		li {
+			@include span-columns(4 of 12);
+			@include omega(3n);
+			margin-top: 1.25em;
+			background: $blue;
+			padding-bottom: .15em;
+			border-bottom: 1px solid transparent;
+			border-radius: 5px;
+		}
+	}
+	
+	h4, h4 a {
+		color: #FFF;
+		margin: 0 0 0 0;
+		text-align: center;
+		padding: .25em 0;
+		text-decoration: none;
+	}		
+}
+
+/*-------------------------------------- Page Content ---------------------------------------*/
+
+.content {
+	
+	h1, h2, h3, h4 {
+		margin: em(10, 16) 0;
+	}
+	
+	h4 {
+		color: $h1_color;
+	}
+	
+	ul, ol, dl, blockquote {
+		margin: 1em 0;
+	}
+	
+	ul {
+		li {
+			margin: 0 0 0 1.35em;
+			padding: .25em 1em .25em .5em;
+			list-style: disc;
+		}
+	}
+	
+	ol {
+		li {
+			margin: 0 0 0 1.35em;
+			padding: .25em 1em .25em .5em;
+			list-style: decimal;
+		}
+	}
+	
+	dl {
+		dd, dt {
+			padding: .25em 0;
+		}
+		dt {
+			font-weight: bold;
+		}
+	}
+	
+	pre {
+		@include enriqueta;
+		font-size: em(14, 16);
+		border: 1px solid #666;
+		padding: 1em;
+	}
+	
+	blockquote {
+		background: #FFF;
+		@include box-sizing;
+		padding: 1em;
+		border-left: 10px solid $accent2;
+	}
+	
+	.button {
+		margin: .5em 0;
+	}
+	
+	table {
+		th {
+			font-weight: bold;
+		}
+		th, td {
+			padding: .25em 1em;
+			border: 1px solid $med_blue;
+			text-align: left;
+			vertical-align: top;
+		}
+	}
+		
+}
+
+/*-------------------------------------- Sidebar ---------------------------------------*/
+
+.sidebar {
+	margin-top: 1em;
+}
+
+/*-------------------------------------- Footer ---------------------------------------*/
+
+.footer {
+	clear: both;
+	margin-top: 1em;
+	background: $foot_background url('../images/bg_footer-grass.jpg') center top repeat-x;
+	padding-top: 110px;
+	color: #FFF;
+	
+	a {
+		color: #FFF;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	
+	h2 {
+		color: $foot_h2;
+		font-size: 1.25em;
+		text-transform: uppercase;
+	}
+}
+
+.catalog_box {
+	background: $foot_cat_background;
+	
+	h2 {
+		color: $foot_h2;;
+		font-size: em(20,16);
+		text-align: center;
+		margin-top: .5em;
+		text-transform: none;
+	}
+	img {
+		text-align: center;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.cat_foot {
+	background: #FFF;
+	margin-bottom: -.5em;
+	padding-bottom: .5em;
+	border-bottom: 1px solid #FFF;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	
+	h3, a {
+		color: $footer_anchor;
+		margin-left: 1em;
+		text-decoration: none;
+	}
+	
+	a:hover {
+		color: $footer_anchor_hover;
+	}
+	
+	h3 {
+		text-transform: uppercase;
+		font-size: em(20,16);
+		padding-top: 1em;
+	}
+
+}
+
+div.quick_links {
+	padding-left: 2em;
+}
+
+div.bottom_links {
+	margin-top: 1em;
+}
+
+table.company_info td {
+	padding-right: 1em;
+}
+
+.footer_bottom {
+	clear: both;
+	@include clearfix;
+	padding-top: 3em;
+	padding-bottom: 1.5em;
+	
+	a {
+		color: $foot_bottom_a;
+		@include color-transition;
+		
+		&:hover {
+			color: $foot_bottom_a_hover;
+			text-decoration: underline;
+		}
+	}
+	
+	.social {
+		a {
+			float: right;
+			position: relative;
+			top: -8px;
+		}		
+	}
+	
+	.facebook {
+		@include icon('sm_footer/sm_footer_facebook.png');
+	}
+	.twitter {
+		@include icon('sm_footer/sm_footer_twitter.png');
+	}
+	.in {
+		@include icon('sm_footer/sm_footer_linkedin.png');
+	}
+	.youtube {
+		@include icon('sm_footer/sm_footer_youtube.png');
+	}
+}
+
+@media screen and (max-width: $main_break) {
+	@import "small_screens";
+}
